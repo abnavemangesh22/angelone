@@ -1,0 +1,13 @@
+---
+- name: Implementation of simple web application
+  hosts: websrv
+  tasks:
+   - name: installation of the httpd server
+     yum: name=httpd state=present
+     tags: Install
+  
+   - name: Create an index.html
+     copy: content="Welcome to Ansible Training\n" dest=/var/www/html/index.html
+  
+   - name: start the webserver
+     service: name=httpd state=started  

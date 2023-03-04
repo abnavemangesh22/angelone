@@ -1,0 +1,5 @@
+---
+- name: This is installation of httpd thru role
+  hosts: all
+  roles:
+   - role: geerlingguy.apache

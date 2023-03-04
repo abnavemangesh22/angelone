@@ -1,0 +1,13 @@
+[websrv]
+client-1 ansible_host=192.168.195.13 ansible_connection=ssh  ansible_port=22 
+
+[database]
+client-2 ansible_host=192.168.195.14 ansible_connection=ssh  ansible_port=22
+
+localhost ansible_connection=ssh ansible_port=22 ansible_user=root ansible_password=root
+
+[prod:children]
+websrv
+database
+
+

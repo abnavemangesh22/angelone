@@ -1,0 +1,7 @@
+---
+- name: Demo for Debug Module for Printing the output as well user input
+  hosts: database
+  tasks:
+   - name: Testing the Debug Module
+     debug:
+       msg: "This is Mangesh Abnave from Pune doing Trainining on Ansible"

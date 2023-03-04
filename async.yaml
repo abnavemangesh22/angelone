@@ -1,0 +1,14 @@
+---
+- name: This is the demo for sync activity
+  strategy: free
+  hosts: websrv,database
+  tasks:
+   - name: We are executing the sleep command - 1
+     command: sleep 10
+   
+   - name: We are executing the sleep command - 2
+     command: sleep 10
+
+   - name: I am executing the second play - 3
+     debug:
+       msg: I am done executing

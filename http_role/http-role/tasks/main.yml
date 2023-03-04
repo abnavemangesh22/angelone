@@ -1,0 +1,16 @@
+---
+# tasks file for http-role
+- name: Install the webserver
+  yum: 
+    name: "{{ myweb }}"
+    state: present
+
+- name: start the web server
+  service:
+    name: "{{ myweb }}"
+    state: started
+    enabled: true
+
+- name: copy the sample page to websever
+  copy: src=index.html dest=/var/www/html/index.html 
+  notify: restart the httpd server thru handler

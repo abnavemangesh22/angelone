@@ -1,0 +1,15 @@
+---
+- name: This is the first demo for loop
+  hosts: websrv,database
+  vars:
+   pkg:
+    - vsftpd
+    - tree
+    - git
+    - mysql
+  tasks:
+   - name: Installation of my apache webserver stack 
+     yum:
+      name: "{{ item }}"
+      state: present
+     with_items: "{{ pkg }}"

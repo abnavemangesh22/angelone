@@ -1,0 +1,9 @@
+---
+- name: test lookup plugin from env
+  hosts: websrv
+  #vars:
+   #local_env: "{{ lookup('env', 'HOSTNAME')}}"
+  tasks:
+    - name: show the variable value
+      debug: 
+        msg: "{{ lookup('env', 'HOSTNAME')}}"

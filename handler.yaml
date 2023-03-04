@@ -1,0 +1,13 @@
+---
+- name: this is demo for handler
+  hosts: database
+  tasks:
+   - name: This is the task which is trigger the handler
+     yum: name=git state=present
+     notify: Change the content
+   - name: display git is installed
+     debug:
+       msg: "This git version is installed"
+  handlers:
+   - name: Change the content
+     command: "touch /tmp/samruddh.txt" 

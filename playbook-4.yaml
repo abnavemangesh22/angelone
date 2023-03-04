@@ -1,0 +1,7 @@
+---
+- name: Tasks related to the gather facts
+  hosts: websrv,database
+  tasks:
+   - name: Display the information about the remote machine
+     debug:
+       msg: "{{ ansible_hostname }} {{ansible_all_ipv4_addresses}} {{ ansible_distribution }}"

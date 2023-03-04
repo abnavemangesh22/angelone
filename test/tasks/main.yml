@@ -1,0 +1,10 @@
+---
+# tasks file for test
+- name: printing the data on the machine
+  debug:
+   msg: "{{ myweb }} {{ myfire }}"
+
+- name: copy the file to remote
+  copy:
+    src: sample.sh
+    dest: /tmp/sample.sh

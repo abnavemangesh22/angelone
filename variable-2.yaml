@@ -1,0 +1,7 @@
+---
+- name: Demo for Debug Module for Printing the output as well user input
+  hosts: all
+  tasks:
+   - name: Testing the Debug Module
+     debug:
+       msg: " {{ group_names }} {{ inventory_hostname }}"

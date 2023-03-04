@@ -1,0 +1,6 @@
+---
+# handlers file for http-role
+- name: restart the httpd server thru handler
+  service:
+    name: "{{ myweb }}"
+    state: restarted

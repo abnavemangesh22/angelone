@@ -1,0 +1,6 @@
+---
+- name: Testing for include the tasks
+  hosts: websrv,database
+  tasks:
+    - name: including the task from user_creation.yaml file
+      include_tasks: user_creation.yaml

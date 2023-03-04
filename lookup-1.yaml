@@ -1,0 +1,9 @@
+---
+- name: This is simple demo for lookup plugin
+  hosts: websrv
+  #vars:
+    #contents: "{{ lookup('file', '/root/angel/app-var.yaml') }}"
+  tasks:
+   - name: Show the values given by the lookup plugin
+     debug:
+       msg: "{{ lookup('file', '/root/angel/app-var.yaml') }}"

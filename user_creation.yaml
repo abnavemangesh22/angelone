@@ -1,0 +1,10 @@
+---
+- name: user creation on your database server
+  user:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - peter10
+    - john10
+
+

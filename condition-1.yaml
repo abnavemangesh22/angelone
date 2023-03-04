@@ -1,0 +1,9 @@
+---
+- name: This is simple conditional statement
+  hosts: websrv
+  vars:
+    age: 18
+  tasks:
+    - name: This is my age tasks
+      command: touch /tmp/myage-18.txt
+      when: age == 18

@@ -1,0 +1,13 @@
+---
+- name: This is another conditional statement
+  hosts: websrv,database
+  tasks:
+   - name: this is the task to check the hostname of the machine
+     debug:
+       msg: "This is my client-1"
+     when: ansible_hostname == "client-1"
+
+   - name: this is the task to check the hostname of the machine
+     debug:
+       msg: "This is my client-2"
+     when: ansible_hostname == "client-2"

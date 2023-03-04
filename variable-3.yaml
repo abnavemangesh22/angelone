@@ -1,0 +1,16 @@
+---
+- name: Demo for Debug Module for Printing the output as well user input
+  hosts: websrv,database
+  vars:
+   myfire: jenkins
+   myweb: apache2
+  tasks:
+   - name: Testing the Debug Module {{ myfire }} and {{ myweb }}
+     debug:
+       msg: "{{ myfire }} {{ myweb }}"
+
+   - name: I am testing the variable
+     debug:
+        msg: "{{ myfire }} {{ myweb }} is working"
+
+   

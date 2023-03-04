@@ -1,0 +1,14 @@
+---
+- name: create multiple users
+  hosts: websrv
+  tasks:
+    - name: Create multiple users in the system
+      user:
+        name: "{{ item }}"
+        state: present
+      loop:
+       - peter
+       - john
+       - samruddh
+       - mangesh
+      

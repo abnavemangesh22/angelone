@@ -1,0 +1,14 @@
+---
+- name: Ansible When Single task example
+  hosts: websrv
+  tasks:
+      - name: List contents of directory and Store in content1
+        command: ls /etc/hosts
+        register: contents1
+      - name: List contents of directory and Store in content2
+        command: ls /root/hello
+        register: contents2
+      - name: Check contents for emptiness for content1 or content2
+        debug:
+          msg: "Directory is empty"
+        when: contents1.stdout == "" or contents2.stdout == ""

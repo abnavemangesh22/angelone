@@ -1,0 +1,18 @@
+---
+- name: demo for error handling for conditional
+  hosts: all
+  gather_facts: false
+  tasks:
+   - name: this is a debug module
+     debug:
+       msg: This is my tasks-1
+   
+   - name: This is tasks for cat command
+     command: cat /tmp/myfile
+     register: command_out
+     failed_when: "'No such' in command_out.stderr"
+
+   - name: This is error output
+     debug:
+       msg: "{{ command_out }}"
+     

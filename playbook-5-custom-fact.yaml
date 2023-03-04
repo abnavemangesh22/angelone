@@ -1,0 +1,7 @@
+---
+- name: Get Web-app details from customize facts
+  hosts: websrv
+  tasks:
+    - name: This is collection of customize facts
+      debug:
+        msg: "{{ ansible_local.web.webdetails.web_port }}"

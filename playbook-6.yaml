@@ -1,0 +1,45 @@
+---
+- name: Enable intranet Service 
+  hosts: websrv
+  vars:
+   myweb: httpd
+   myfire: firewalld
+  tasks:
+   - name: Installation of {{ myweb }} and {{ myfire }}
+     yum:
+      name:
+        - "{{ myweb }}"
+        - "{{ myfire }}"
+      state: present
+   
+   - name: Enable and run {{ myfire }}
+     service:
+      name: "{{ myfire }}"
+      state: started
+      enabled: true
+   
+   - name: The {{ myfire }} permit  {{ myweb }} service
+     firewalld:
+      service: http
+      permanent: true
+      state: enabled
+      immediate: true
+  
+   - name: The {{ myweb }} should be enabled and running
+     service:
+      name: "{{ myweb }}"
+      enabled: true
+      state: started
+
+   - name: Test html page should be available
+     copy:
+      content: "Welcome to Kubernetes upcoming training\n"
+      dest: /var/www/html/index.html
+     notify: Restart the server
+  
+  handlers:
+   - name: Restart the server
+     service:
+       name: "{{ myweb }}"
+       state: restarted    
+     

@@ -1,0 +1,21 @@
+---
+- name: I am testing strategy of the ansible execution=
+  hosts: websrv,database,localhost
+  any_errors_fatal: true
+  gather_facts: false
+  tasks:
+    - name: user creation
+      user: name=mangesh123 state=present
+    
+    - name: yum installation
+      yum: name=tree state=installed
+
+    - name: create the file inside emp directory
+      command: touch /tmp/emp/emp.dat
+   
+    - name: command execution on the remote server
+      command: sleep 5
+   
+    - name: copy the file
+      copy: src=/root/angel/include_task.yaml dest=/tmp/include_task.yaml 
+ 

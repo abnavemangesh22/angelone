@@ -1,0 +1,19 @@
+---
+- name: Installation of web server
+  hosts: websrv
+  tasks:
+   - name: Installation of the web package
+     yum:
+      name: nginx
+      state: present
+     register: yum_output
+     ignore_errors: true
+     
+   - name: Show me the value inside the register variable
+     debug:
+        msg: "{{ yum_output }}" 
+   
+   - name: This tasks will work when condition is fullfilled
+     debug:
+       msg: This message will print only if condition is successful
+     when: yum_output.failed == true

@@ -1,0 +1,8 @@
+---
+- name: Capture the ouput of the command
+  hosts: websrv
+  tasks:
+   - name: Collet the ip information
+     shell: "uptime"
+     register: ip_addr
+   - debug: var=ip_addr.stdout_lines

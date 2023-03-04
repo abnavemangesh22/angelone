@@ -1,0 +1,8 @@
+---
+- name: This is the main playbook
+  hosts: websrv,database
+  ignore_unreachable: true
+  tasks:
+   - name: This is one of the task
+     debug:
+       msg: "This is the printing the tasks"

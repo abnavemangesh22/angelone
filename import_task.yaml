@@ -1,0 +1,6 @@
+---
+- name: Testing for import the tasks
+  hosts: websrv,database
+  tasks:
+    - name: importing the task from user_creation.yaml file
+      import_tasks: user_creation.yaml
